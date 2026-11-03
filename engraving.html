@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engraving | Mahshid arjmandnia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="home portfolio-page">
+
+<nav class="portfolio-home-link" dir="ltr">
+  <a href="portfolio.html">← HOME</a>
+</nav>
+
+    <h1 class="category-title">Engraving</h1>
+
+    <section class="portfolio-gallery">
+
+      <article class="artwork-item">
+        <button class="artwork-square" type="button"
+          data-artwork="engraving-1.jpg"
+          data-alt="Engraving artwork 1">
+          <img src="engraving-1.jpg" alt="Engraving artwork 1">
+        </button>
+        <p class="artwork-description">
+          توضیحات اثر اول
+        </p>
+      </article>
+
+      <article class="artwork-item">
+        <button class="artwork-square" type="button"
+          data-artwork="engraving-2.jpg"
+          data-alt="Engraving artwork 2">
+          <img src="engraving-2.jpg" alt="Engraving artwork 2">
+        </button>
+        <p class="artwork-description">
+          توضیحات اثر دوم
+        </p>
+      </article>
+
+    </section>
+
+    <div class="artwork-lightbox" id="artworkLightbox" aria-hidden="true">
+      <button class="lightbox-close" type="button">&times;</button>
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+    </div>
+
+  </main>
+
+  <script>
+    const lightbox = document.getElementById("artworkLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+
+    document.querySelectorAll(".artwork-square").forEach((artwork) => {
+      artwork.addEventListener("click", () => {
+        lightboxImage.src = artwork.dataset.artwork;
+        lightboxImage.alt = artwork.dataset.alt;
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-active");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-active");
+      lightboxImage.src = "";
+    }
+
+    document.querySelector(".lightbox-close")
+      .addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+        document.querySelectorAll(".artwork-square").forEach((artwork) => {
+  artwork.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+});
+    // Disable image context menu in gallery and lightbox
+document.addEventListener("contextmenu", (event) => {
+  if (
+    event.target.closest(".artwork-square") ||
+    event.target.closest(".artwork-lightbox")
+  ) {
+    event.preventDefault();
+  }
+});
+
+// Prevent dragging images
+document.querySelectorAll(".artwork-square img, .lightbox-image")
+  .forEach((img) => {
+    img.setAttribute("draggable", "false");
+    img.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+  });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,525 @@
+@font-face {
+    font-family: 'HeadingNow';
+    src: url('./fonts/HeadingNowTrial-67Extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+
+
+.home {
+  
+  min-height: 100vh;
+  padding: 105px 12px 30px;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08), rgba(255,255,255,0.08)),
+    url("1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.identity {
+  color: #ffffff;
+  text-align: left;
+  font-size: 55px;
+  margin-left: 10px;
+  margin-top: 450px;
+}
+.indexclass {
+
+  color: 
+  #ffffff;
+  text-align: left;
+    margin-left: 15px;
+    margin-top: 35px;
+}
+
+.identity h1 {
+  direction: rtl;
+  text-align: left;
+
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.english-name {
+  direction: ltr;
+  text-align: left;
+font-size: clamp(30px, 6vw, 50px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-left: -12px;
+}
+
+.menu {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 500;
+
+
+
+}
+
+.menu a {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+
+}
+
+.menu a:hover {
+  color: #ffffff;
+}
+.tt{    margin-left: 50px;
+  margin-top: 400px;}
+
+.conectrr {
+  color: #ffffff;
+}
+
+
+
+
+
+@media (max-width: 600px) {
+  .home {
+    padding-top: 65px;
+    background-position: center;
+  }
+
+  .identity h1 {
+    font-size: 23px;
+  }
+
+  .menu a {
+    font-size: 22px;
+  }
+}
+.parent-box {
+    position: relative; /* خیلی مهم: باعث میشه دکمه موقعیتش رو نسبت به این باکس تنظیم کنه نه کل صفحه مانیتور */
+    height: 100vh;      /* ارتفاع باکس (مثلا کل ارتفاع صفحه) */
+}
+
+.my-button {
+    position: absolute;
+    bottom: 20px;  /* فاصله از پایین صفحه */
+    left: 20px;    /* فاصله از چپ صفحه */
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-out {
+  to {
+      opacity: 0;
+      transform: translateX(-10px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+      opacity: 0;
+      transform: translateX(10px);
+  }
+}
+
+/* ==============================
+   PORTFOLIO - تنظیمات آثار هنری
+   فقط مقادیر این قسمت را تغییر بده.
+   ============================== */
+
+:root {
+  --artwork-size: 320px;          /* اندازه مربع عکس */
+  --artwork-description-gap: 18px;/* فاصله توضیحات از عکس */
+  --artwork-description-size: 17px;/* اندازه نوشته توضیحات */
+  --artwork-item-gap: 70px;       /* فاصله بین سه اثر */
+  --portfolio-top-space: 35px;    /* فاصله اولین اثر از بالای صفحه */
+  --artwork-description-width: 320px; /* عرض محدوده توضیحات */
+}
+
+.portfolio-page {
+  position: relative;
+  padding-top: var(--portfolio-top-space);
+  padding-bottom: 90px;
+}
+
+.portfolio-home-link {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.portfolio-home-link a {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.portfolio-gallery {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--artwork-item-gap);
+}
+
+.artwork-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artwork-square {
+  width: min(var(--artwork-size), calc(100vw - 32px));
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.artwork-square img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artwork-description {
+  width: min(var(--artwork-description-width), calc(100vw - 32px));
+  margin-top: var(--artwork-description-gap);
+  color: #ffffff;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: var(--artwork-description-size);
+  line-height: 1.9;
+  text-align: right;
+  direction: rtl;
+}
+
+@media (max-width: 600px) {
+  .portfolio-page {
+    padding-top: 25px;
+      .english-name {
+    font-size: 38px !important;
+    white-space: nowrap;
+    margin-left: -12px;
+}
+  }
+
+  .portfolio-home-link a {
+    font-size: 22px;
+  }
+
+  .artwork-description {
+    font-size: var(--artwork-description-size);
+  }
+}
+
+
+/* بزرگ‌نمایی آثار هنری */
+.artwork-square {
+  display: block;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  font: inherit;
+}
+
+.artwork-square:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 5px;
+}
+
+.lightbox-active {
+  overflow: hidden;
+}
+
+.artwork-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 24px 24px;
+  background: rgba(0, 0, 0, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.artwork-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: min(92vw, 1200px);
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 38px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* دکمه HOME یکسان در صفحه‌های سایت */
+.portfolio-home-link {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 10;
+  margin: 0;
+}
+
+.portfolio-home-link a {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.portfolio-home-link a:hover,
+.portfolio-home-link a:focus {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .portfolio-home-link a {
+    font-size: 22px;
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+/* سفید شدن راه‌های ارتباطی صفحه Contact */
+.contact-links a,
+.indexclass.contact-links a,
+.indexclass a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.indexclass a:hover,
+.indexclass a:focus {
+  color: #ffffff;
+}
+
+.about-page,
+.contact-page,
+.portfolio-page {
+  position: relative;
+}
+/* بخش معرفی هنرمند در About */
+
+.about-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 15px 40px;
+  position: relative;
+  top: -200px;
+}
+
+.about-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-description {
+  width: 300px;
+  margin-top: 20px;
+  color: #ffffff;
+ font-family: Tahoma, Arial, sans-serif !important;
+  font-size: 17px;
+  line-height: 2;
+  text-align: right;
+  direction: rtl;
+}
+
+
+@media (max-width: 600px) {
+  .about-image {
+    width: 260px;
+    height: 260px;
+  }
+
+  .about-description {
+    width: 260px;
+  }
+}
+
+/* فونت صفحه تماس */
+.contact-page {
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.contact-page a:not(.my-button) {
+    font-family: Tahoma, Arial, sans-serif !important;
+    letter-spacing: normal;
+}
+
+/* فونت دکمه HOME */
+.my-button {
+    font-family: 'HeadingNow', sans-serif !important;
+}
+/* فونت انگلیسی سایت */
+.english-name,
+.menu a {
+    font-family: 'HeadingNow', sans-serif;
+    font-weight: 800;
+}
+
+/* فونت فارسی صفحه About */
+.about-description {
+    font-family: Tahoma, Arial, sans-serif !important;
+    font-weight: normal;
+    direction: rtl;
+}
+
+/* فونت فارسی صفحه Contact */
+.contact-page,
+.contact-page a:not(.my-button) {
+    font-family: Tahoma, Arial, sans-serif !important;
+    font-weight: normal;
+    letter-spacing: normal;
+}
+
+/* فونت دکمه HOME در تمام صفحات */
+.my-button,
+.portfolio-home-link a {
+    font-family: 'HeadingNow', sans-serif !important;
+    font-weight: 800;
+}
+
+/* Portfolio categories */
+
+.portfolio-categories {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  padding: 40px 20px;
+}
+
+.portfolio-category {
+  width: min(600px, 90%);
+  padding: 25px 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: 0.3s;
+}
+
+.portfolio-category span {
+  font-size: 16px;
+}
+
+.portfolio-category h2 {
+  font-family: 'HeadingNow', sans-serif;
+  font-size: clamp(28px, 5vw, 45px);
+  font-weight: 800;
+}
+
+.portfolio-category:hover {
+  transform: translateX(-10px);
+  opacity: 0.7;
+}
+
+
+.category-title {
+  color: white;
+  text-align: center;
+  font-family: 'HeadingNow', sans-serif;
+  font-size: clamp(35px, 6vw, 60px);
+  margin: 50px 0;
+}
+
+
+/* Portfolio categories position */
+
+.portfolio-categories {
+  min-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 35px 25px;
+  gap: 15px;
+}
+
+.portfolio-category {
+  width: fit-content;
+  border-bottom: none;
+  padding: 10px;
+}
+/* Disable image dragging and selection */
+.artwork-square img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Dark background overlay on all devices */
+
+.home {
+    position: relative;
+    isolation: isolate;
+    background-color: #111;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+    pointer-events: none;
+}
